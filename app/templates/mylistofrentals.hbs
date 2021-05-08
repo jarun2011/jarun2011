@@ -1,0 +1,174 @@
+{{outlet}}
+
+{{#each model.cars as |car|}}
+    <li> {{car}} </li>
+{{/each}}
+
+<br>
+
+No of Cars: <b>{{model.cars.length}}</b>
+
+<br>
+<br>
+
+{{#each model.sequences as |sequence sequenceindex|}}
+  <li> <b> {{sequenceindex}} </b>: {{sequence}} </li>
+{{/each}}
+
+<br>
+
+<div class="row">
+  <div class="col l2">
+    No Of Items: <b> {{model.sequences.length}} </b>
+  </div>
+</div>
+
+<br>
+
+<table>
+
+  <thead>
+    <th>
+      Make
+    </th>
+    <th>
+      Model
+    </th>
+    <th>
+      Year
+    </th>
+  </thead>
+
+  <tbody>
+    <td> {{model.car.make}} </td>
+    <td> {{model.car.model}} </td>
+    <td> {{model.car.year}} </td>
+  </tbody>
+</table>
+
+<br>
+
+{{#each model.set as |key value|}}
+  <li>{{value}} : {{key}}</li>
+{{/each}}
+
+No Of Items in Set: {{model.set.size}}
+
+<br>
+
+{{#each-in model.for_in as |key value|}}
+  <li>{{key}} : {{value}}</li>
+{{/each-in}}
+
+<br>
+
+{{#each-in model.obj_keys as |key value|}}
+  <li>{{key}} : {{value}}</li>
+{{/each-in}}
+
+<br>
+
+{{#each-in model.map_object as |key value|}}  
+  <li> {{key}} : {{value}} </li>
+{{/each-in}}
+
+<br>
+
+No of Sayings: <b>{{model.map_object.size}}</b>
+
+<br>  
+
+{{model.listofintegers}} <br> 
+{{model.found_elements}} <br>
+{{model.sliced_elements}} <br>
+{{model.spliced_elements}} <br>
+{{model.lastIndexOf}} <br>
+
+<br>
+
+<table>
+  <thead style="background-color: darkred;color: yellow;text-align: left;">
+    <tr>
+      <th>Sport</th>
+      <th>Nation</th>
+      <th>Earnings</th>
+   </tr>
+  </thead>
+
+  {{#each-in model.listofathletes as |key value|}} 
+    <tr style="background-color: wheat;">
+      <td>{{value.sport}}</td>
+      <td>{{value.nation}}</td>
+      <td>{{value.earnings}}</td>
+    </tr>
+  {{/each-in}}
+</table>
+
+<br>
+
+<table>
+
+  <thead style="background-color: darkred;color: yellow;text-align: left;">
+    <tr>
+      <th>Name</th>
+      <th>Sport</th>
+      <th>Nation</th>
+      <th>Earnings</th>
+   </tr>
+  </thead>
+
+  <tbody>
+    {{#each model.groupedathletesBySport as |groupedbysport|}}
+      {{#each-in groupedbysport as |key value|}}
+        {{#each value as |val|}}
+          <tr style="background-color: wheat;">
+            <td>{{val.name}}</td>
+            <td>{{val.sport}}</td>
+            <td>{{val.nation}}</td>
+            <td>{{val.earnings}}</td>
+          </tr>
+        {{/each}}
+      {{/each-in}}
+    {{/each}}
+  </tbody>
+
+</table>
+
+{{!-- {{#each model.athletesbynationandsport as |nationsport|}}
+  {{log nationsport}}
+  {{#each nationsport as |nation|}}
+  {{/each}}
+{{/each}} --}}
+
+{{!-- {{log model.transactionsgroupedbydate}} --}}
+
+<br>
+
+<table>
+
+<thead style="background-color: darkred;color: yellow;text-align: left;">
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Amount</th>
+   </tr>
+  </thead>
+
+  <tbody>
+    {{#each model.transactionsgroupedbynamedate as |namedate|}}
+      {{#each namedate as |name|}}
+        {{#each name as |nameval|}}
+          {{#each nameval as |val|}}
+            {{#each val as |value|}}
+              <tr style="background-color: wheat;">
+                <td>{{value.name}}</td>
+                <td>{{value.date}}</td>
+                <td>{{value.amount}}</td>
+              </tr>
+            {{/each}}
+          {{/each}}
+        {{/each}}
+      {{/each}}
+    {{/each}}
+  </tbody>
+</table>
