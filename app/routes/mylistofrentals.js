@@ -42,7 +42,7 @@ export default class MylistofrentalsRoute extends Route {
     var athletesbynationandsport = d3.groups(listofathletes, d => d.nation, d => d.sport)
     var sum = d3.rollup(listofathletes, v => d3.sum(v, d => d.earnings), d => d.sport)
     var length = d3.rollup(listofathletes, v => v.length, d => d.nation, d => d.sport)
-    debugger
+    console.log(sum + ";" + length);
 
     var listoftransactions = [
       {name: "Jim",   amount: 3400,  date: new Date("2015-11-12")},
