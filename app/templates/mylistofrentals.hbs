@@ -134,11 +134,37 @@ No of Sayings: <b>{{model.map_object.size}}</b>
 
 </table>
 
-{{!-- {{#each model.athletesbynationandsport as |nationsport|}}
-  {{log nationsport}}
-  {{#each nationsport as |nation|}}
+<table>
+
+  <thead style="background-color: darkred;color: yellow;text-align: left;">
+    <tr>
+      <th>Name</th>
+      <th>Sport</th>
+      <th>Nation</th>
+      <th>Earnings</th>
+   </tr>
+  </thead>
+
+  {{#each model.athletesbynationandsport as |nationsport|}}
+    {{#each nationsport as |nation|}}
+    {{#each nation as |eachnation|}}
+      {{#each eachnation as |nationval|}}
+        {{#each nationval as |val|}}
+          <tr style="background-color: wheat;">
+            <td>{{val.name}}</td>
+            <td>{{val.sport}}</td>
+            <td>{{val.nation}}</td>
+            <td>{{val.earnings}}</td>
+          </tr>
+        {{/each}}
+      {{/each}}
+    {{/each}}
+    {{/each}}
   {{/each}}
-{{/each}} --}}
+
+</table>
+
+<br>
 
 {{!-- {{log model.transactionsgroupedbydate}} --}}
 

@@ -52,10 +52,9 @@ export default class MylistofrentalsRoute extends Route {
     ]
 
     listoftransactions.forEach( (eachtransactionitem) =>{
-      var formattedDate = moment(eachtransactionitem.date).format('MMM Do YYYY')
+      var formattedDate = moment(eachtransactionitem.date).format('YYYY-MM-DD')
       eachtransactionitem.date = formattedDate;
-      debugger
-    })
+        })
 
     var transactionsgroupedbydate = d3.group(listoftransactions, d => d.date)
     var transactionsgroupedbynamedate = d3.group(listoftransactions, d => d.name, d => d.date)
