@@ -166,7 +166,29 @@ No of Sayings: <b>{{model.map_object.size}}</b>
 
 <br>
 
-{{!-- {{log model.transactionsgroupedbydate}} --}}
+<table>
+
+  <thead style="background-color: darkred;color: yellow;text-align: left;">
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+
+  {{#each model.transactionsgroupedbydate as |groupedbydate|}}
+    {{#each groupedbydate as |grouped|}}
+      {{#each grouped as |groupeddata|}}
+        <tr style="background-color: wheat;">
+          <td>{{groupeddata.name}}</td>
+          <td>{{groupeddata.date}}</td>
+          <td>{{groupeddata.amount}}</td>
+        </tr>
+      {{/each}}
+    {{/each}}
+  {{/each}}
+
+</table>
 
 <br>
 
